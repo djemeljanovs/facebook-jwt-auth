@@ -34,4 +34,9 @@ Run tests:
 yarn run test
 ```
 
+## Views:
+### 1. Login view:
+![Alt text](readme/please-login.png?raw=true "Log in view")
+### 2. User logged in view:
+![Alt text](readme/logged-in.png?raw=true "Logged in view")
 ***
