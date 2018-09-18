@@ -1,4 +1,4 @@
-import { Action } from "redux";
+import { AnyAction } from "redux";
 import { ActionTypes } from "../actions/api";
 
 export interface State {
@@ -16,15 +16,15 @@ export const initialState: State = {
     profileImage: '/silhouette.png',
 };
 
-export function reducer(state: State = initialState, action: Action) {
+export function reducer(state: State = initialState, action: AnyAction) {
     switch (action.type) {
         case ActionTypes.SET_USER:
             return {
-                displayName: (<any>action).payload.DisplayName,
-                profileImage: (<any>action).payload.ProfileImage,
-                email: (<any>action).payload.Email,
-                familyName: (<any>action).payload.FamilyName,
-                givenName: (<any>action).payload.GivenName,
+                displayName: action.payload.DisplayName,
+                profileImage: action.payload.ProfileImage,
+                email: action.payload.Email,
+                familyName: action.payload.FamilyName,
+                givenName: action.payload.GivenName,
             };
         default:
             return state;
