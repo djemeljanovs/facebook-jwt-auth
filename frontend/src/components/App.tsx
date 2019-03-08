@@ -1,7 +1,7 @@
 import * as React from 'react';
-import FacebookLogin, {ReactFacebookLoginInfo} from 'react-facebook-login';
-import UserConnected from "../containers/UserConnected";
 import styled, { injectGlobal } from 'styled-components';
+import Streamer from "./Streamer";
+import {ReactFacebookLoginInfo} from "react-facebook-login";
 
 const DINProRegularFont = require('../../public/fonts/DINPro-Regular.otf');
 const DINProBoldFont = require('../../public/fonts/DINPro-Bold.otf');
@@ -33,27 +33,13 @@ export interface AppProps {
     handleFacebookLoginSuccess: (facebookUser: ReactFacebookLoginInfo) => void;
 }
 
-const LoginView = styled.div`
-
-`;
 class App extends React.Component<AppProps> {
     public render() {
-        return (<Wrapper>
-            {this.props.isAuthorized
-                ? <UserConnected />
-                : <LoginView>
-                    <p>Please login:</p>
-                    <FacebookLogin
-                        appId="252165875435582"
-                        buttonStyle={{
-                            fontFamily: 'DinProRegular, Arial, sans-serif'
-                        }}
-                        autoLoad={false}
-                        fields="name,email,picture"
-                        callback={this.props.handleFacebookLoginSuccess}/>
-                  </LoginView>
-            }
-        </Wrapper>);
+        return (
+            <Wrapper>
+                <Streamer/>
+            </Wrapper>
+        );
     }
 }
 
